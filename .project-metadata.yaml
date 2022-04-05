@@ -2,24 +2,18 @@ name: Tensorboard on CML
 description: How to run Tensorboard on CML
 author: Cloudera Inc.
 specification_version: 1.0
-prototype_version: 1.0
-date: "2021-07-06"
-
-engine_images:
-  - image_name: engine
-    tags:
-      - 14
+prototype_version: 2.0
+date: "2022-04-05"
 
 runtimes:
   - editor: Workbench
-    kernel: Python 3.6
+    kernel: Python 3.9
     edition: Standard
 
 tasks:
   - type: run_session
     name: Install Dependencies
     script: cml/install_dependencies.py
-    kernel: python3
     memory: 4
     cpu: 2
 
@@ -27,13 +21,11 @@ tasks:
     name: Launch Tensorboard
     subdomain: tensorboard
     script: cml/launch_tensorboard.py
-    kernel: python3
     memory: 1
     cpu: 1
 
   - type: run_session
     name: Train Model
     script: load_and_train.py
-    kernel: python3
     memory: 4
     cpu: 2
